@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+
+{% block title %}
+{{ MESA_CATEGORY }}: {{ category | lower }}
+{% endblock %}
+
+
+{% block head %}
+
+{% if CATEGORY_FEED_ATOM %}
+<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|replace("{slug}", category.slug) }}" type="application/atom+xml"
+      rel="alternate" title="{{ SITENAME }} {{ category }} Category Atom"/>
+{% endif %}
+
+{% if CATEGORY_FEED_RSS %}
+<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|replace("{slug}", category.slug) }}" type="application/rss+xml"
+      rel="alternate" title="{{ SITENAME }} {{ category }} Category RSS"/>
+{% endif %}
+
+{% endblock %}
+
+{% block header %}
+
+{{ MESA_SEPARATION_STR }} {{MESA_CATEGORY}}:
+
+{% if category.ancestors %}
+{% for ancestor_category in category.ancestors[:-1] %}
+<a href="{{ SITEURL }}/{{ ancestor_category.url }}">
+    {{ ancestor_category.shortname | lower }}
+</a>
+&gt;
+{% endfor %}
+{% endif %}
+
+<span>{{ category.shortname | lower}}</span>
+
+{% if CATEGORY_FEED_ATOM %}
+{{ MESA_SEPARATION_STR }}
+<a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|replace("{slug}", category.slug) }}">
+    {{ MESA_ATOM }}
+</a>
+{% endif %}
+
+{% if CATEGORY_FEED_RSS %}
+{{ MESA_SEPARATION_STR }}
+<a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|replace("{slug}", category.slug) }}">
+    {{ MESA_RSS }}
+</a>
+{% endif %}
+
+<h1>{{ MESA_CATEGORY }}: {{ category.shortname }} </h1>
+
+{% if category.page %}
+{{ category.page.content }}
+{% endif %}
+
+{% endblock %}

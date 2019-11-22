@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ MESA_ARCHIVES }}
+{% endblock %}
+
+{% block content %}
+<article>
+    <h1>{{ MESA_ARCHIVES }} </h1>
+
+    {% for article in dates %}
+    <p>
+        {{ article.locale_date }} {{ MESA_SEPARATION_STR }}
+
+        <a href="{{ SITEURL }}/{{ article.url }}">
+            {{ article.title }}
+        </a>
+
+    </p>
+    {% endfor %}
+</article>
+{% endblock %}

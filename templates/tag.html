@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+{% block title %}
+{{ MESA_TAG }}: {{ tag }}
+{% endblock %}
+
+{% block head %}
+
+{% if TAG_FEED_ATOM %}
+<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|replace("{slug}", tag.slug) }}" type="application/atom+xml"
+      rel="alternate" title="{{ SITENAME }} {{ tag }} Tag Atom"/>
+{% endif %}
+
+{% if TAG_FEED_RSS %}
+<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|replace("{slug}", tag.slug) }}" type="application/rss+xml" rel="alternate"
+      title="{{ SITENAME }} {{ tag }} Tag RSS"/>
+{% endif %}
+
+{% endblock %}
+
+{% block header %}
+
+&gt; {{ MESA_TAG }}: {{ tag }}
+
+{% if TAG_FEED_ATOM %}
+
+{{ MESA_SEPARATION_STR }}
+<a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|replace("{slug}", tag.slug) }}">
+    {{ MESA_ATOM }}
+</a>
+{% endif %}
+
+{% if TAG_FEED_RSS %}
+{{ MESA_SEPARATION_STR }}
+<a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|replace("{slug}", tag.slug) }}">
+    {{ MESA_RSS }}
+</a>
+{% endif %}
+
+<h1>{{ MESA_TAG }}: {{ tag | lower }}</h1>
+
+{% if tag.page %}
+{{ tag.page.content }}
+{% endif %}
+
+
+{% endblock %}

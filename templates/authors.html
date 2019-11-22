@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ MESA_AUTHOR_S }}
+{% endblock %}
+
+{% block content %}
+<article>
+    <h1>{{ MESA_AUTHOR_S }}</h1>
+    <ul>
+        {% for author, articles in authors | sort %}
+        <li>
+            <a href="{{ SITEURL }}/{{ author.url }}">
+                {{ author }}
+            </a>
+
+            <span>[{{ articles|count }} {{ MESA_ARTICLES }}]</span>
+
+            {% if author.page %}
+            <p>{{ author.page.content }}</p>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</article>
+{% endblock %}
