@@ -1,11 +1,21 @@
-@coyote-summer-1: #4e442d;
-@coyote-summer-2: #6c5140;
-@coyote-summer-3: #74625e;
-@coyote-summer-4: #8e6e50;
-@coyote-summer-5: #8e7e71;
-@coyote-summer-6: #a08264;
-@coyote-summer-7: #ac8f74;
-@coyote-summer-8: #b79b84;
+@solarized-dark-base03:    #002b36;
+@solarized-dark-base02:    #073642;
+@solarized-dark-base01:    #586e75;
+@solarized-dark-base00:    #657b83;
+
+@solarized-light-base0:     #839496;
+@solarized-light-base1:     #93a1a1;
+@solarized-light-base2:     #eee8d5;
+@solarized-light-base3:     #fdf6e3;
+
+@solarized-yellow:    #b58900;
+@solarized-orange:    #cb4b16;
+@solarized-red:       #dc322f;
+@solarized-magenta:   #d33682;
+@solarized-violet:    #6c71c4;
+@solarized-blue:      #268bd2;
+@solarized-cyan:      #2aa198;
+@solarized-green:     #859900;
 
 // match photos plugin config in pelicanconf.py
 @thumb-width: 300px;
@@ -35,14 +45,14 @@ html {
 
 body {
 
-  font-family: Enriqueta,serif;
+  font-family: Enriqueta, serif;
   font-size: 1rem;
 
   padding: 2rem;
   margin: auto;
 
-  background: @coyote-summer-8;
-  color: @coyote-summer-1;
+  background: @solarized-light-base3;
+  color: @solarized-dark-base03;
 }
 
 
@@ -53,7 +63,7 @@ h4,
 h5 {
   font-weight: normal;
   text-align: left;
-  font-family: NationalPark,sans-serif;
+  font-family: NationalPark, sans-serif;
 
   span {
     color: inherit;
@@ -71,33 +81,33 @@ h5 {
 }
 
 h1 {
-  color: @coyote-summer-2;
+  color: @solarized-dark-base00;
   font-size: 1.75rem;
 }
 
 h2 {
-  color: @coyote-summer-3;
+  color: @solarized-dark-base01;
   font-size: 1.50rem;
 }
 
 h3 {
-  color: @coyote-summer-4;
+  color: @solarized-dark-base02;
   font-size: 1.25rem;
 }
 
 a {
-  color: @coyote-summer-2;
+  color: @solarized-orange;
 
   &:hover,
   &:active {
-    color: @coyote-summer-1;
+    color: @solarized-yellow;
   }
 }
 
 hr {
   border: none;
   height: 1px;
-  background-color: @coyote-summer-1;
+  background-color: @solarized-orange;
 }
 
 img {
@@ -146,9 +156,10 @@ main {
     div.article_list_meta,
     div.article_full_meta,
     div.neighbors,
+
     div.similar {
       font-size: 0.75rem;
-      color: @nord10;
+      color: @solarized-light-base0;
 
       display: inline-block;
       width: 100%;
@@ -162,12 +173,12 @@ main {
     }
 
     div.quote {
-      background-color: @paper;
-      color: @ink;
+      background-color: @solarized-light-base2;
+      color: @solarized-dark-base02;
       padding: 7.5px 15px 7.5px 15px;
       margin: 15px 0 15px 0;
 
-      font-family: Enriqueta;
+      font-family: Enriqueta, serif;
 
       p.content {
       }
@@ -194,7 +205,7 @@ main {
   }
 
   div.credits {
-    color: @nord10;
+    color: @solarized-light-base0;
     font-size: 0.65rem;
   }
 }
@@ -208,11 +219,11 @@ table {
   td {
     border-style: solid;
     border-width: thin;
-    border-color: @nord4;
+    border-color: @solarized-light-base0;
   }
 
   th {
-    color: @nord3;
+    color: @solarized-light-base0;
   }
 }
 
