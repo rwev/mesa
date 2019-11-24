@@ -17,12 +17,7 @@
 @solarized-cyan: #2aa198;
 @solarized-green: #859900;
 
-// match photos plugin config in pelicanconf.py
-
 @site-brand-height: 8rem;
-
-@thumb-width: 300px;
-@thumb-height: 225px;
 
 @font-face {
   font-family: NationalPark;
@@ -134,6 +129,7 @@ main {
       h1 {
         line-height: @site-brand-height;
       }
+
       img {
         height: @site-brand-height;
       }
@@ -157,39 +153,23 @@ main {
       div.right {
         float: right;
       }
+
       div.left {
         float: left;
       }
     }
 
-    div.quote {
+    blockquote {
+
       background-color: @solarized-light-base2;
       color: @solarized-dark-base02;
-      padding: 7.5px 15px 7.5px 15px;
-      margin: 15px 0 15px 0;
+      padding: 1rem;
+      margin: 1rem 0 1rem 0;
 
       font-family: Enriqueta, serif;
 
-      p.content {
-      }
-
       p.annotation {
         font-weight: bold;
-      }
-    }
-  }
-
-  footer {
-    div.paginations {
-      display: inline-block;
-      width: 100%;
-
-      a.pagination_older {
-        float: left;
-      }
-
-      a.pagination_newer {
-        float: right;
       }
     }
   }
@@ -202,7 +182,6 @@ main {
 
 table {
   width: 100%;
-
   border-collapse: collapse;
 
   th,
@@ -218,29 +197,13 @@ table {
 }
 
 @media screen and (min-width: 768px) {
-  main {
 
-    header {
-      margin: 2rem 0 2rem 0;
-    }
-
-    footer {
-      margin: 2rem 0 0 0;
-    }
-
-    div.right,
-    div.right {
-      float: right !important; // TODO fix
+  article {
+    div.gallery {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-gap: 1rem
     }
   }
 
-  div.gallery {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-gap: 10px;
-
-    figcaption {
-      width: @thumb-width;
-    }
-  }
 }
