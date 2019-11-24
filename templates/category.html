@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 
 {% block title %}
-{{ MESA_CATEGORY }}: {{ category | lower }}
+{{ MESA_CATEGORY }}: {{ category | upper }}
 {% endblock %}
 
 
@@ -26,13 +26,13 @@
 {% if category.ancestors %}
 {% for ancestor_category in category.ancestors[:-1] %}
 <a href="{{ SITEURL }}/{{ ancestor_category.url }}">
-    {{ ancestor_category.shortname | lower }}
+    {{ ancestor_category.shortname | upper }}
 </a>
 &gt;
 {% endfor %}
 {% endif %}
 
-<span>{{ category.shortname | lower}}</span>
+<span>{{ category.shortname | upper}}</span>
 
 {% if CATEGORY_FEED_ATOM %}
 {{ MESA_SEPARATION_STR }}

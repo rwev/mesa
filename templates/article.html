@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block head %}
-<meta name="keywords" content="{{ article.tags|join(', ')  }}">
+<meta name="keywords"
+      content="{{ article.tags|join(', ')  }}">
 {% endblock %}
 
 {% block title %}
@@ -13,51 +14,53 @@
         <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
     </div>
 
-    <div class="article_full_meta">
-        <div class="non_date">
-            <p>{{ MESA_AUTHOR_S }}:
-                {% for author in article.authors %}
-                <a href="{{ SITEURL }}/{{ author.url }}">
-                    {{ author }}
-                </a>
-                {% if not loop.last %}
-                ,
-                {% endif %}
-                {% endfor %}
-            </p>
+    <div class="meta">
+        <p>{{ MESA_AUTHOR_S }}:
+           {% for author in article.authors %}
+            <a href="{{ SITEURL }}/{{ author.url }}">
+                {{ author }}
+            </a>
+           {% if not loop.last %}
+           ,
+           {% endif %}
+           {% endfor %}
+        </p>
 
-            <p> {{ MESA_CATEGORY }}:
-                {% for category in article.category.ancestors or [article.category] %}
-                <a href="{{ SITEURL }}/{{ category.url }}">
-                    {{ category.shortname or category | lower }}
-                </a>
-                {{ ' &gt;' if not loop.last }}
-                {% endfor %}
-            </p>
+        <p> {{ MESA_CATEGORY }}:
+            {% for category in article.category.ancestors or [article.category] %}
+            <a href="{{ SITEURL }}/{{ category.url }}">
+                {{ category.shortname or category | upper }}
+            </a>
 
-            <p>
-                {% if article.tags %}
-                {{ MESA_TAGS }}:
+            {% endfor %}
+        </p>
 
-                {% for tag in article.tags %}
+        <p>
+            {% if article.tags %}
+            {{ MESA_TAGS }}:
 
-                <a href="{{ SITEURL }}/{{ tag.url }}">
-                    {{ tag | lower }}
-                </a>
+            {% for tag in article.tags %}
 
-                {% if not loop.last %}
-                ,
-                {% endif %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">
+                {{ tag | upper }}
+            </a>
 
-                {% endfor %}
+            {% if not loop.last %}
+            ,
+            {% endif %}
 
-                {% endif %}
-            </p>
-        </div>
-        <div class="dates">
-            <p>{{ MESA_POSTED }}: {{ article.locale_date}}</p>
-            <p>{{ MESA_MODIFIED }}: {{ article.locale_modified }}</p>
-        </div>
+            {% endfor %}
+
+            {% endif %}
+        </p>
+
+        <p>
+            {{ MESA_POSTED }}: {{ article.locale_date}}
+        </p>
+
+        <p>
+            {{ MESA_MODIFIED }}: {{ article.locale_modified }}
+        </p>
     </div>
 
     <div>
@@ -90,37 +93,40 @@
 
 
     {% if article.prev_article or article.next_article %}
-    <div class="neighbors">
+    <div class="meta">
         {% if article.prev_article %}
-        <div class="neighbors_prev">
-            &lt; {{ MESA_PREVIOUS }}
-
-            <a href="{{ SITEURL }}/{{ article.prev_article.url }}">
-                {{ article.prev_article.title }}
-            </a>
+        <div class="left">
+            <p>
+                &lt; {{ MESA_PREVIOUS }}
+                <a href="{{ SITEURL }}/{{ article.prev_article.url }}">
+                    {{ article.prev_article.title }}
+                </a>
+            </p>
         </div>
         {% endif %}
 
         {% if article.next_article %}
-        <div class="neighbors_next">
-            {{ MESA_NEXT }}
-
-            <a href="{{ SITEURL }}/{{ article.next_article.url }}">
-                {{ article.next_article.title }}
-            </a>&gt;
+        <div class="right">
+            <p>
+                {{ MESA_NEXT }}
+                <a href="{{ SITEURL }}/{{ article.next_article.url }}">
+                    {{ article.next_article.title }}
+                </a>
+                &gt;
+            </p>
         </div>
         {% endif %}
     </div>
     {% endif %}
 
     {% if article.similar_posts %}
-    <div class="similar">
-        {{ MESA_SIMILAR_ARTICLES }}:
+    <div class="meta">
+        <p>{{ MESA_SIMILAR_ARTICLES }}:</p>
         <ul>
-            {% for similar in article.similar_posts %}
+            {% for meta in article.similar_posts %}
             <li>
-                <a href="{{ SITEURL }}/{{ similar.url }}">
-                    {{ similar.title }}
+                <a href="{{ SITEURL }}/{{ meta.url }}">
+                    {{ meta.title }}
                 </a>
             </li>
             {% endfor %}

@@ -15,13 +15,13 @@
             {% if category.ancestors %}
             {% for ancestor_category in category.ancestors[:-1] %}
 
-            <span>{{ ancestor_category.shortname | lower }}</span>
+            <span>{{ ancestor_category.shortname | upper }}</span>
             &gt;
 
             {% endfor %}
             {% endif %}
 
-            <a href="{{ SITEURL }}/{{ category.url }}">{{ category.shortname | lower}}</a>
+            <a href="{{ SITEURL }}/{{ category.url }}">{{ category.shortname | upper}}</a>
 
             <span>[{{ articles|count }} {{ MESA_ARTICLES }}]</span>
 

@@ -1,23 +1,26 @@
-@solarized-dark-base03:    #002b36;
-@solarized-dark-base02:    #073642;
-@solarized-dark-base01:    #586e75;
-@solarized-dark-base00:    #657b83;
+@solarized-dark-base03: #002b36;
+@solarized-dark-base02: #073642;
+@solarized-dark-base01: #586e75;
+@solarized-dark-base00: #657b83;
 
-@solarized-light-base0:     #839496;
-@solarized-light-base1:     #93a1a1;
-@solarized-light-base2:     #eee8d5;
-@solarized-light-base3:     #fdf6e3;
+@solarized-light-base0: #839496;
+@solarized-light-base1: #93a1a1;
+@solarized-light-base2: #eee8d5;
+@solarized-light-base3: #fdf6e3;
 
-@solarized-yellow:    #b58900;
-@solarized-orange:    #cb4b16;
-@solarized-red:       #dc322f;
-@solarized-magenta:   #d33682;
-@solarized-violet:    #6c71c4;
-@solarized-blue:      #268bd2;
-@solarized-cyan:      #2aa198;
-@solarized-green:     #859900;
+@solarized-yellow: #b58900;
+@solarized-orange: #cb4b16;
+@solarized-red: #dc322f;
+@solarized-magenta: #d33682;
+@solarized-violet: #6c71c4;
+@solarized-blue: #268bd2;
+@solarized-cyan: #2aa198;
+@solarized-green: #859900;
 
 // match photos plugin config in pelicanconf.py
+
+@site-brand-height: 8rem;
+
 @thumb-width: 300px;
 @thumb-height: 225px;
 
@@ -106,68 +109,55 @@ a {
 
 hr {
   border: none;
-  height: 1px;
+  margin: 3rem 0 1rem 0;
+  height: 0.125rem;
   background-color: @solarized-orange;
 }
 
 img {
   max-width: 100%;
-
-  &#logo {
-    width: 7.5rem;
-    -webkit-transition: -webkit-transform 0.8s ease-in-out;
-    transition: transform 0.8s ease-in-out;
-
-    &:hover {
-      -webkit-transform: rotate(240deg);
-      transform: rotate(240deg);
-    }
-  }
 }
 
-aside {
-  div.user-meta {
-    ul {
-      list-style-type: none;
-
-      li {
-        display: inline;
-      }
-    }
-  }
-}
 
 main {
 
-  article {
-    div.article_listing {
-      margin: 50px 0 50px 0;
+  max-width: 750px;
+  margin: auto;
+
+  header {
+    text-align: center;
+
+    div.site-brand {
+      display: inline-flex;
+      height: @site-brand-height;
 
       h1 {
-        margin-bottom: 0;
+        line-height: @site-brand-height;
+      }
+      img {
+        height: @site-brand-height;
       }
     }
+  }
 
-    div.neighbors,
-    div.similar {
-      margin: 20px 0 0 0;
+  article {
+
+    hr {
+      height: 0.075rem;
+      background-color: @solarized-yellow;
     }
 
-    div.article_list_meta,
-    div.article_full_meta,
-    div.neighbors,
-
-    div.similar {
-      font-size: 0.75rem;
+    div.meta {
+      font-size: 0.85rem;
       color: @solarized-light-base0;
 
       display: inline-block;
       width: 100%;
 
-      div.dates,
-      div.neighbors_next,
-      div.non_date,
-      div.neighbors_prev {
+      div.right {
+        float: right;
+      }
+      div.left {
         float: left;
       }
     }
@@ -229,41 +219,18 @@ table {
 
 @media screen and (min-width: 768px) {
   main {
-    position: absolute;
-
-    top: 0;
-    right: 32%;
-
-    max-width: 750px;
-    margin: 0 0 0 1rem;
 
     header {
-      margin: 40px 0 40px 0;
+      margin: 2rem 0 2rem 0;
     }
 
     footer {
-      margin: 40px 0 0 0;
+      margin: 2rem 0 0 0;
     }
 
-    div.dates,
-    div.neighbors_next {
+    div.right,
+    div.right {
       float: right !important; // TODO fix
-    }
-  }
-
-  aside {
-    position: absolute;
-
-    top: 0;
-    right: 0;
-
-    width: 25%;
-    height: 100%;
-
-    margin: 40px;
-
-    div.user-meta ul li {
-      display: block;
     }
   }
 

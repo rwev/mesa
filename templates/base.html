@@ -4,9 +4,12 @@
 <head>
 
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="{{ AUTHOR }}">
-    <meta name="description" content="Posts and writings by {{ AUTHOR }}">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta name="author"
+          content="{{ AUTHOR }}">
+    <meta name="description"
+          content="Posts and writings by {{ AUTHOR }}">
 
     <!-- client-side less
             <link rel="stylesheet/less" type="text/css" href="{{ SITEURL }}/theme/css/style.less">
@@ -14,9 +17,13 @@
             -->
 
 
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css">
+    <link rel="stylesheet"
+          type="text/css"
+          href="{{ SITEURL }}/theme/css/style.css">
 
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/assets/javascript/dependencies/nord-highlightjs.css">
+    <link rel="stylesheet"
+          type="text/css"
+          href="{{ SITEURL }}/assets/javascript/dependencies/nord-highlightjs.css">
     <script src="{{ SITEURL }}/assets/javascript/dependencies/highlight.pack.js"></script>
 
     <script src="{{ SITEURL }}/assets/files/load-script.js"></script>
@@ -24,12 +31,16 @@
     <script src="{{ SITEURL }}/assets/files/load-file-text-element.js"></script>
 
     {% if FEED_ALL_ATOM %}
-    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"
+          type="application/atom+xml"
+          rel="alternate"
           title="{{ SITENAME }} Atom"/>
     {% endif %}
 
     {% if FEED_ALL_RSS %}
-    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate"
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"
+          type="application/rss+xml"
+          rel="alternate"
           title="{{ SITENAME }} RSS"/>
     {% endif %}
 
@@ -46,58 +57,21 @@
 </head>
 
 <body>
+
 <main>
     <header>
-        <a href="{{ SITEURL }}">{{ MESA_HOME }}</a> {{ MESA_SEPARATION_STR }}<a
-            href="{{ SITEURL }}/archives.html">{{ MESA_ARCHIVES }}</a>
 
-        {% if FEED_ALL_ATOM %}
-
-        {{ MESA_SEPARATION_STR }}
-        <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">
-            {{ MESA_ATOM }}
-        </a>
-
-        {% endif %}
-
-        {% if FEED_ALL_RSS %}
-
-        {{ MESA_SEPARATION_STR }}
-            <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">
-                {{ MESA_RSS }}
-            </a>
-        {% endif %}
-
-        {% block header %}
-        {% endblock header %}
-        <hr>
-    </header>
-
-    {% block content %}
-    {% endblock %}
-
-    {% block footer %}
-    {% endblock %}
-
-    <div class="credits">
-        <hr>
-        <p>&copy; {{ OWNER }}. built using <a href="https://python.org">python</a> and <a href="https://getpelican.com"
-                                                                                          target="_blank">pelican</a>.
-            theme inspired by <a href="https://nordtheme.com" target="_blank">nord</a>.</p>
-    </div>
-</main>
-<aside>
-    <div class="user-meta">
-
-        <a href="{{ SITEURL }}">
-            <img src="{{ SITE_URL }}/{{ USER_LOGO_URL }}" alt="logo" id="logo">
-        </a>
-
-        <h2>
+        <div class="site-brand">
+            <h1>
+                <a href="{{ SITEURL }}">
+                    {{ SITENAME }}
+                </a>
+            </h1>
             <a href="{{ SITEURL }}">
-                {{ SITENAME }}
+                <img src="{{ SITEURL }}/{{ SITE_LOGO_URL }}"
+                     alt="site-logo">
             </a>
-        </h2>
+        </div>
 
         <p>{{ TAGLINE }}</p>
 
@@ -107,74 +81,64 @@
             {% for p in pages %}
             <li>
                 <a href="{{ SITEURL }}/{{ p.url }}">
-                    {{ p.title | lower }}</a>
+                    {{ p.title | upper }}</a>
             </li>
             {% endfor %}
         </ul>
         {% endif %}
 
-        <h3> {{ MESA_BLOG }} </h3>
-        <ul>
-            <li>
-                <a href="{{ SITEURL }}/categories">
-                    {{ MESA_CATEGORIES }} [{{ categories | count }}]
-                </a>
-            </li>
-            <li>
-                <a href="{{ SITEURL }}/authors">
-                    {{ MESA_AUTHORS }} [{{ authors | count }}]
-                </a>
-            </li>
-            <li>
-                <a href="{{ SITEURL }}/tags">
-                    {{ MESA_TAGS }} [{{ tags | count }}]
-                </a>
-            </li>
-        </ul>
+        <nav>
+            <a href="{{ SITEURL }}">
+                {{ MESA_HOME }}
+            </a>
+            {{ MESA_SEPARATION_STR }}
+            <a href="{{ SITEURL }}/archives.html">
+                {{ MESA_ARCHIVES }}
+            </a>
+            {{ MESA_SEPARATION_STR }}
+            <a href="{{ SITEURL }}/categories">
+                {{ MESA_CATEGORIES }} [{{ categories | count }}]
+            </a>
+            {{ MESA_SEPARATION_STR }}
+            <a href="{{ SITEURL }}/authors">
+                {{ MESA_AUTHORS }} [{{ authors | count }}]
+            </a>
+            {{ MESA_SEPARATION_STR }}
+            <a href="{{ SITEURL }}/tags">
+                {{ MESA_TAGS }} [{{ tags | count }}]
+            </a>
+            {{ MESA_SEPARATION_STR }}
 
-        {% if DISPLAY_LINKS_ON_MENU %}
-        <h3>{{ MESA_LINKS }}</h3>
-        <ul>
-            {% for name, link in LINK_ITEMS %}
-            <li>
-                <a href="{{ link }}" target="_blank">
-                    {{ name | lower }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+            {% if FEED_ALL_ATOM %}
+            {{ MESA_SEPARATION_STR }}
+            <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">
+                {{ MESA_ATOM }}
+            </a>
+            {% endif %}
+            {% if FEED_ALL_RSS %}
+            {{ MESA_SEPARATION_STR }}
+            <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}">
+                {{ MESA_RSS }}
+            </a>
+            {% endif %}
+        </nav>
 
-        {% if DISPLAY_CATEGORIES_ON_MENU %}
-        <h3>{{ MESA_CATEGORIES }}</h3>
-        <ul>
-            {% for category_name, articles_in_category in categories %}
-            <li>
-                <a href="{{ SITEURL }}/{{ category_name.url }}">
-                    {{ category_name | lower }} [{{ articles_in_category | count }}]
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+        {% block header %}
+        {% endblock header %}
+        <hr>
+    </header>
 
-        <!-- TODO move along bottom edge of sidebar - add icons -->
-        {% if DISPLAY_SOCIAL_ON_MENU %}
-        <h3>{{ MESA_SOCIAL }}</h3>
-        <ul>
-            {% for name, link in SOCIAL %}
-            <li>
-                <a href="{{ link }}" target="_blank">
-                    {{ name | lower }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+    {% block content %}
+    {% endblock %}
 
-    </div>
-</aside>
-
+    <footer>
+        <hr>
+        <p>&copy; {{ OWNER }}. built using <a href="https://python.org">python</a> and <a href="https://getpelican.com"
+                                                                                          target="_blank">pelican</a>.
+           theme inspired by <a href="https://ethanschoonover.com/solarized/"
+                                target="_blank">solarized</a>.</p>
+    </footer>
+</main>
 
 </body>
 </html>
