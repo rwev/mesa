@@ -22,7 +22,13 @@
             <!-- only show first author and complete categorization for cleanliness -->
             {{ MESA_AUTHOR }}: {{ article.author }}
             {{ MESA_SEPARATION_STR }}
-            {{ MESA_CATEGORY }}: {{ article.category }}
+            {{ MESA_CATEGORY }}:
+            {% for category in article.category.ancestors or [article.category] %}
+            {{ category.shortname or category | lower }}
+            {% if not loop.last %}
+            &gt;
+            {% endif %}
+            {% endfor %}
         </p>
     </div>
 

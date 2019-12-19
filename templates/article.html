@@ -31,7 +31,9 @@
             <a href="{{ SITEURL }}/{{ category.url }}">
                 {{ category.shortname or category | lower }}
             </a>
-
+            {% if not loop.last %}
+            &gt;
+            {% endif %}
             {% endfor %}
         </p>
 

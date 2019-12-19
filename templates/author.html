@@ -20,14 +20,10 @@
 
 {% block header %}
 
-&gt; {{ MESA_AUTHOR }}: {{ author }}
-
-<h1> {{ MESA_AUTHOR }}: {{ author }} </h1>
+<h1> {{ MESA_AUTHOR }}: {{ author | lower }} </h1>
 
 {% if author.page %}
-
 {{ author.page.content }}
-
 {% endif %}
 
 {% endblock %}
