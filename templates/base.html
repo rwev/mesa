@@ -74,7 +74,7 @@
             {% for p in pages %}
             <li>
                 <a href="{{ SITEURL }}/{{ p.url }}">
-                    {{ p.title | upper }}</a>
+                    {{ p.title | lower }}</a>
             </li>
             {% endfor %}
         </ul>

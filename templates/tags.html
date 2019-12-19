@@ -10,7 +10,7 @@
         <ul>
                 {%- for tag, articles in tags|sort %}
                 <li>
-                        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | upper}}</a>
+                        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | lower}}</a>
                         <span>[{{ articles|count }} {{ MESA_ARTICLES }}]</span>
 
                         {% if tag.page %}
