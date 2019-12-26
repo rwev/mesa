@@ -84,8 +84,6 @@ MESA_HOME = "home"
 MESA_ARCHIVES = "archives"
 MESA_SIMILAR_ARTICLES = "similar articles"
 
-MESA_PAGES = "pages"
-
 MESA_AUTHOR = "author"
 MESA_AUTHORS = "authors"
 MESA_AUTHOR_S = "author(s)"
