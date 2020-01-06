@@ -35,7 +35,6 @@ PLUGINS = [
     "more_categories",
     "photos",
     "summary",
-    "clean_summary",
 ]
 
 # autopages
@@ -68,11 +67,7 @@ PHOTO_EXIF_COPYRIGHT = "CC-BY-NC-ND"
 PHOTO_EXIF_COPYRIGHT_AUTHOR = ""
 
 # summary
-SUMMARY_MAX_LENGTH = 1000  # use whole summary
 SUMMARY_USE_FIRST_PARAGRAPH = True
-
-CLEAR_SUMMARY_MAXIMUM = 0
-CLEAN_SUMMARY_MINIMUM_ONE = False
 
 # CONFIGURATIONS FOR MESA STATIC APPEARANCE (NOT USED BY PELICAN)
 
@@ -83,8 +78,6 @@ MESA_SOCIAL = "social"
 MESA_HOME = "home"
 MESA_ARCHIVES = "archives"
 MESA_SIMILAR_ARTICLES = "similar articles"
-
-MESA_PAGES = "pages"
 
 MESA_AUTHOR = "author"
 MESA_AUTHORS = "authors"

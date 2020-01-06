@@ -68,23 +68,21 @@
 
         <p>{{ TAGLINE }}</p>
 
-        {% if DISPLAY_PAGES_ON_MENU %}
-        <h3>{{ MESA_PAGES }}</h3>
-        <ul>
-            {% for p in pages %}
-            <li>
-                <a href="{{ SITEURL }}/{{ p.url }}">
-                    {{ p.title | lower }}</a>
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-
         <nav>
             <a href="{{ SITEURL }}">
                 {{ MESA_HOME }}
             </a>
             {{ MESA_SEPARATION_STR }}
+
+            {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in pages %}
+            <a href="{{ SITEURL }}/{{ p.url }}">
+                {{ p.title | lower }}
+            </a>
+            {{ MESA_SEPARATION_STR }}
+            {% endfor %}
+            {% endif %}
+
             <a href="{{ SITEURL }}/archives.html">
                 {{ MESA_ARCHIVES }}
             </a>
