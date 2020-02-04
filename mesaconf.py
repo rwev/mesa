@@ -34,7 +34,7 @@ PLUGINS = [
     "neighbors",
     "more_categories",
     "photos",
-    "summary",
+    "summary"
 ]
 
 # autopages
@@ -49,12 +49,6 @@ SIMILAR_POSTS_MAX_COUNT = 3
 
 # photos
 PHOTO_LIBRARY = ""
-
-# 1.33~ width / height ratio
-# (width, height, quality % of max)
-PHOTO_GALLERY = (2000, 1500, 95)
-PHOTO_ARTICLE = (760, 506, 95)
-PHOTO_THUMB = (300, 225, 70)
 
 PHOTO_SQUARE_THUMB = True
 PHOTO_RESIZE_JOBS = 5
