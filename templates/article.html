@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block head %}
-<meta name="keywords"
-      content="{{ article.tags|join(', ')  }}">
+<!--
+        <meta   name="keywords"
+                content="{{ article.tags|join(', ')  }}">
+-->
 {% endblock %}
 
 {% block title %}
@@ -37,6 +39,7 @@
             {% endfor %}
         </p>
 
+        <!--
         <p>
             {% if article.tags %}
             {{ MESA_TAGS }}:
@@ -55,6 +58,7 @@
 
             {% endif %}
         </p>
+        -->
 
         <p>
             {{ MESA_POSTED }}: {{ article.locale_date}}
